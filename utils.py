@@ -1,21 +1,28 @@
-def fact(n):
-    """Computes the factorial of a natural number.
+import math
 
-    Pre: -
-    Post: Returns the factorial of 'n'.
-    Throws: ValueError if n < 0
-    """
-    pass
+
+def fact(n):
+    if n < 0:
+        raise ValueError("must be positive")
+
+    if n == 0:
+        return 1
+
+    result = 1
+
+    for i in range(1, n + 1):
+        result *= i
+
+    return result
 
 
 def roots(a, b, c):
-    """Computes the roots of the ax^2 + bx + x = 0 polynomial.
-
-    Pre: -
-    Post: Returns a tuple with zero, one or two elements corresponding
-            to the roots of the ax^2 + bx + c polynomial.
-    """
-    pass
+    d = b**2 - 4 * a * c
+    if d < 0:
+        return ()
+    else:
+        roots = ((-b + math.sqrt(d)) / 2, (-b - math.sqrt(d)) / 2)
+    return roots
 
 
 def integrate(function, lower, upper):
